@@ -6,14 +6,25 @@
 <body>
     <h1>Page Loaded</h1>
     <script>
-        // Send a GET request to Google
-        fetch('https://www.google.com')
-            .then(response => {
-                console.log('GET request sent to Google:', response.status, response.statusText);
-            })
-            .catch(error => {
-                console.error('Error sending GET request:', error);
-            });
+        class SDK {
+            constructor() {
+                this.messages = [];
+            }
+
+            dispatchMessage(message) {
+                console.log("Message received:", message);
+                // Send a GET request to Google
+                fetch('https://www.google.com')
+                    .then(response => {
+                        console.log('GET request sent to Google:', response.status, response.statusText);
+                    })
+                    .catch(error => {
+                        console.error('Error sending GET request:', error);
+                    });
+            }
+        }
+        window.SDKInstance = new SDK();
+        window.SDKInstance.dispatchMessage("test")
     </script>
 </body>
 </html>
