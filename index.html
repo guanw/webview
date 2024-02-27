@@ -4,7 +4,7 @@
     <title>Send GET Request to Google</title>
 </head>
 <body>
-    <h1>Page Loaded</h1>
+    <h1>POST Page Loaded</h1>
     <script>
         class SDK {
             constructor() {
@@ -14,7 +14,13 @@
             dispatchMessage(message) {
                 console.log("Message received:", message);
                 // Send a GET request to Google
-                fetch('https://www.google.com')
+                fetch('https://www.example.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({})
+                })
                     .then(response => {
                         console.log('GET request sent to Google:', response.status, response.statusText);
                     })
